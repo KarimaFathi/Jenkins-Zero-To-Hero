@@ -25,7 +25,7 @@ pipeline {
         SONAR_URL = "http://127.0.0.1:9000"  //  as part of static code analysis what you need to do is first tell the Jenkins what is the URL of your sonar Cube because without the URL, Jenkins will not be able to send the report to sonar server
       }
       steps {
-        withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) { // here we are storing the token of the ID sonarqube in a variable called SONAR_AUTHO_TOKEN 
+        withCredentials([string(credentialsId: 'sonarqube_token', variable: 'SONAR_AUTH_TOKEN')]) { // here we are storing the token of the ID sonarqube in a variable called SONAR_AUTHO_TOKEN 
           sh 'cd java-maven-sonar-argocd-helm-k8s/spring-boot-app && mvn sonar:sonar -Dsonar.login=$SONAR_AUTH_TOKEN -Dsonar.host.url=${SONAR_URL}'
         }
       }
