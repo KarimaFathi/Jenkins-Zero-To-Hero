@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Static Code Analysis') {
       environment {
-        SONAR_URL = "http://127.0.0.1:9000"  //  as part of static code analysis what you need to do is first tell the Jenkins what is the URL of your sonar Cube because without the URL, Jenkins will not be able to send the report to sonar server
+        SONAR_URL = "http://192.168.0.100:9000"  //  as part of static code analysis what you need to do is first tell the Jenkins what is the URL of your sonar Cube because without the URL, Jenkins will not be able to send the report to sonar server
       }
       steps {
         withCredentials([string(credentialsId: 'Sonarqube_token', variable: 'SONAR_AUTH_TOKEN')]) { // here we are storing the token of the ID sonarqube in a variable called SONAR_AUTHO_TOKEN 
